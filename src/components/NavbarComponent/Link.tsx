@@ -1,14 +1,15 @@
 import React from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { SelectedPage } from "../enum/enumPage";
 
 type Props = {
   page: string;
-  selectedPage: string;
-  setSelectedPage: (value: string) => void;
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
 };
 
 export default function Link({ page, selectedPage, setSelectedPage }: Props) {
-  const lowerPageName = page.toLowerCase().replace(/ /g, "");
+  const lowerPageName = page.toLowerCase().replace(/ /g, "") as SelectedPage;
   return (
     <AnchorLink
       className={`${
