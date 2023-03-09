@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SelectedPage } from "./components/enum/enumPage";
+import { SelectedPage } from "./components/shared/enumPage";
 import NavbarComponent from "./components/NavbarComponent";
 
 function App() {

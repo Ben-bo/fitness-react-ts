@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import logo from "@/assets/Logo.png";
 import Link from "./Link";
-import { SelectedPage } from "../enum/enumPage";
+import { SelectedPage } from "../shared/enumPage";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import ActionButton from "../shared/actionButton";
+import SideBarComponent from "../SideBar";
 
 type Props = {
   selectedPage: SelectedPage;
@@ -54,7 +56,12 @@ export default function NavbarComponent({
                 {/* sign in side */}
                 <div className="flex-between-utils gap-5">
                   <p>Sign In</p>
-                  <button>Join Us</button>
+                  <ActionButton
+                    setSelectedPage={setSelectedPage}
+                    pageName={SelectedPage.ContactUs}
+                  >
+                    Join Us
+                  </ActionButton>
                 </div>
               </div>
             ) : (
@@ -62,11 +69,12 @@ export default function NavbarComponent({
                 className="rounded-full bg-secondary-500 p-2"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}
               >
+                {/* Bar3Icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-white"
                 >
                   <path
                     fillRule="evenodd"
@@ -79,6 +87,13 @@ export default function NavbarComponent({
           </div>
         </div>
       </div>
+
+      {!isAboveMediumScreens && isMenuToggled && (
+        <SideBarComponent
+          isMenuToggled={isMenuToggled}
+          setIsMenuToggled={setIsMenuToggled}
+        />
+      )}
     </nav>
   );
 }

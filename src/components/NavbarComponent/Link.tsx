@@ -1,6 +1,6 @@
 import React from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { SelectedPage } from "../enum/enumPage";
+import { SelectedPage } from "../shared/enumPage";
 
 type Props = {
   page: string;
