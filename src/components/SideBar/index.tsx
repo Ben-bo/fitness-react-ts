@@ -1,16 +1,22 @@
 import React from "react";
+import Link from "../NavbarComponent/Link";
+import { SelectedPage } from "../shared/enumPage";
 
 type Props = {
   isMenuToggled: boolean;
+  selectedPage: SelectedPage;
   setIsMenuToggled: (value: boolean) => void;
+  setSelectedPage: (value: SelectedPage) => void;
 };
 
 export default function SideBarComponent({
   setIsMenuToggled,
   isMenuToggled,
+  selectedPage,
+  setSelectedPage,
 }: Props) {
   return (
-    <div className="fixed right-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl ">
+    <div className="fixed right-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl transition duration-500 ">
       {/* close icon sidebars */}
       <div className="flex justify-end p-12 ">
         <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -27,6 +33,29 @@ export default function SideBarComponent({
             />
           </svg>
         </button>
+      </div>
+      {/* menu items */}
+      <div className="ml-[33%] flex flex-col gap-10 text-md">
+        <Link
+          page={"Home"}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+        <Link
+          page={"Benetits"}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+        <Link
+          page={"Our Classes"}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+        <Link
+          page={"Contact Us"}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
       </div>
     </div>
   );
