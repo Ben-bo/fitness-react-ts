@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SelectedPage } from "./components/shared/enumPage";
 import NavbarComponent from "./components/NavbarComponent";
+import HomeComponent from "./components/HomeComponent";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -36,6 +37,7 @@ function App() {
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+      <HomeComponent setSelectedPage={setSelectedPage} />
     </div>
   );
 }
