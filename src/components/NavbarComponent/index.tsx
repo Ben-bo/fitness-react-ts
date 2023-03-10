@@ -11,17 +11,22 @@ import SideBarComponent from "../SideBar";
 type Props = {
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
+  isTopPage: boolean;
 };
 
 export default function NavbarComponent({
   selectedPage,
   setSelectedPage,
+  isTopPage,
 }: Props) {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+  const navBarBackground = isTopPage ? "" : "bg-primary-100 drop-shadow";
   return (
     <nav>
-      <div className="flex-between-utils fixed top-0 z-30 w-full py-6">
+      <div
+        className={`${navBarBackground} flex-between-utils fixed top-0 z-30 w-full py-6 transition duration-400`}
+      >
         <div className="flex-between-utils mx-auto w-5/6">
           <div className="flex-between-utils w-full gap-16">
             {/* logo */}
@@ -92,6 +97,8 @@ export default function NavbarComponent({
         <SideBarComponent
           isMenuToggled={isMenuToggled}
           setIsMenuToggled={setIsMenuToggled}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
         />
       )}
     </nav>
