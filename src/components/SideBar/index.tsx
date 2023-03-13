@@ -2,6 +2,8 @@ import React from "react";
 import Link from "../NavbarComponent/Link";
 import { SelectedPage } from "../shared/enumPage";
 
+import { motion } from "framer-motion";
+
 type Props = {
   isMenuToggled: boolean;
   selectedPage: SelectedPage;
@@ -16,7 +18,17 @@ export default function SideBarComponent({
   setSelectedPage,
 }: Props) {
   return (
-    <div className="fixed right-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl transition duration-500 ">
+    <motion.div
+      className="fixed right-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl transition duration-500 "
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.1 }}
+      variants={{
+        hidden: { opacity: 0, x: 200 },
+        visible: { opacity: 1, x: 0 },
+      }}
+    >
       {/* close icon sidebars */}
       <div className="flex justify-end p-12 ">
         <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -57,6 +69,6 @@ export default function SideBarComponent({
           setSelectedPage={setSelectedPage}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
