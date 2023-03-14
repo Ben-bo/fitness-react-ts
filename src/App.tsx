@@ -3,6 +3,9 @@ import { SelectedPage } from "./components/shared/enumPage";
 import NavbarComponent from "./components/NavbarComponent";
 import HomeComponent from "./components/HomeComponent";
 import BenefitsComponent from "./components/BenefitsComponent";
+import ClassesComponenet from "./components/ClassesComponent";
+import ContactUs from "./components/contactUsComponent";
+import Footer from "./components/footerComponent";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -31,6 +34,11 @@ function App() {
     };
   }, []);
 
+  //change title
+  useEffect(() => {
+    document.title = selectedPage;
+  }, [selectedPage]);
+
   return (
     <div className="app bg-gray-20">
       <NavbarComponent
@@ -40,6 +48,9 @@ function App() {
       />
       <HomeComponent setSelectedPage={setSelectedPage} />
       <BenefitsComponent setSelectedPage={setSelectedPage} />
+      <ClassesComponenet setSelectedPage={setSelectedPage} />
+      <ContactUs setSelectedPage={setSelectedPage} />
+      <Footer />
     </div>
   );
 }
