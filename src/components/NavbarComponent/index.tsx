@@ -42,7 +42,7 @@ export default function NavbarComponent({
                     setSelectedPage={setSelectedPage}
                   />
                   <Link
-                    page={"Benetits"}
+                    page={"Benefits"}
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
