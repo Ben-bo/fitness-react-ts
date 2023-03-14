@@ -5,3 +5,9 @@ export type benefitsDataType = {
   title: string;
   description: string;
 };
+
+export type ClassType = {
+  name: string;
+  description?: string;
+  image: string;
+};
