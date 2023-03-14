@@ -8,5 +8,5 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
-  base: "/fitness-react-ts/",
+  base: "/fitness-react-ts/", // mengganti routes d dist foler. [fix error github pages]
 });
